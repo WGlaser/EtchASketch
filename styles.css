@@ -1,0 +1,28 @@
+#container{
+  display: flex;
+  background-color: silver;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 800px;
+  height:800px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+input{
+	margin-bottom: 10px;
+	
+}
+.square{
+	background: white;
+	
+	border: 1px solid black;
+
+
+}
+
+.hover{
+	background: #000000;
+}

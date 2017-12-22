@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+  <title>Etch</title>
+   <div>
+    <input type="text" id="textBox">
+    <button onclick="buildBoard()">Build the Board!</button>
+    <button onClick="clearBoard()">Clear the Board!</button>
+  </div>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="container"></div>
+ 
+
+ <script>
+  function clearBoard(){
+      const squares =document.querySelectorAll('.square');
+      squares.forEach(square =>square.classList.remove("hover"));
+  }
+  function getSize(){
+    var size = document.getElementById("textBox").value;
+    size = parseFloat(size);
+    return size;
+    
+  }
+
+  function buildBoard(){
+    const container = document.querySelector('#container');
+    while(container.hasChildNodes()){
+      container.removeChild(container.lastChild);
+    }
+
+    var num = getSize();
+    var w = 800;
+    var widthString = w.toString()+'px';
+    container.style.width =widthString;
+    //there will always be X boxes and X-1 edges
+    //width*x +edge(x-1) = 800 always
+    //
+
+    for (var i = 0; i<Math.pow(num,2); i++) {
+      const div = document.createElement('div');
+      div.classList.add('square');
+      //function to set size of squares
+      //16 by 16 is 25 px squares
+      var s= (800/num)-2;
+      var squareString = s.toString()+"px";
+      console.log(squareString);
+
+      div.style.width = squareString;
+      div.style.height = squareString;
+      div.addEventListener('mouseover', onMouseOver);
+      container.appendChild(div);
+
+    
+  }
+
+  function onMouseOver(e){
+    e.target.classList.add('hover');
+  }
+}
+ </script>
+</body>
